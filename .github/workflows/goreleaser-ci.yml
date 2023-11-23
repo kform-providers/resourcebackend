@@ -4,11 +4,9 @@ on:
   push:
     tags:
       - v*
-permissions:
-   contents: write
-   packages: write
 jobs:
   build:
+    permissions: write-all
     runs-on: ubuntu-latest
     outputs:
       goreleaser: ${{ steps.filter.outputs.goreleaser }}
