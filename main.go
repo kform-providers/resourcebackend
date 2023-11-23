@@ -7,7 +7,7 @@ import (
 	"github.com/henderiw-nephio/kform/kform-plugin/kfprotov1/kfserver1"
 	"github.com/henderiw-nephio/kform/kform-sdk-go/pkg/schema"
 	"github.com/henderiw/logger/log"
-	resourcebackend "github.com/kform-providers/resourcebackend/provider"
+	"github.com/kform-providers/resourcebackend/provider"
 )
 
 const providerName = "registry.kform.dev/provider/resourcebackend"
@@ -18,7 +18,7 @@ func main() {
 	slog.SetDefault(log)
 
 	grpcProviderFunc := func() kfprotov1.ProviderServer {
-		return schema.NewGRPCProviderServer(resourcebackend.Provider())
+		return schema.NewGRPCProviderServer(provider.Provider())
 	}
 
 	opts := []kfserver1.ServeOpt{
